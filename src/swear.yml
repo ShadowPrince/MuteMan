@@ -1,0 +1,15 @@
+# i hope that word "swear" means what i expect...
+
+settings:
+    # number of swears totally ignored (in a row)
+    ignore: 1
+    damage:
+        # number of swears for damaging
+        from: 3
+        damage: 2
+    mute:
+        # number of swearks for muting
+        from: 5
+        time: 60
+# you own list
+swears:

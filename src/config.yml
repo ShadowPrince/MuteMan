@@ -1,0 +1,14 @@
+# damage player, who is muted and continue write
+damage: 0
+notify:
+    # enable notify to muted player
+    enabled: true
+    # show time in it
+    time: true
+add-permissions:
+    # list of permissions, works only with PEX
+    list:
+# permission group for muted players, works only with PEX        
+set-group:
+# totally disable commands for muted user. Not recommended, of course
+disable-commands: false
