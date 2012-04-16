@@ -49,6 +49,7 @@ public class Swear {
         String string = (" "+event.getMessage()+" ").replace(".", " ").toLowerCase();
         Boolean sweared = false;
         int count = 1;
+        if (swears != null)
         for (int i = 0; i < swears.size(); i++){
             String swear = " "+swears.get(i).toString().toLowerCase()+" ";
             if (string.contains(swear)) {

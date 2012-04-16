@@ -123,6 +123,7 @@ public class MuteMan extends JavaPlugin{
             Long mutelong = Long.parseLong(Integer.toString(mute));
             MuteManager.Mute(sender, player, mutelong);
             List perms = config.getList("add-permissions.list", null);
+            if (perms != null)
             for (int i = 0; i < perms.size(); i++) {
                 Access.addNode(player, (String) perms.get(i));
             }
