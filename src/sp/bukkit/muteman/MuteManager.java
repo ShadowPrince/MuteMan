@@ -16,6 +16,7 @@ import org.bukkit.entity.Player;
 /**
  *
  * @author sp
+ * Bad code here.
  */
 public class MuteManager {
     private static FileConfiguration config;
@@ -46,7 +47,7 @@ public class MuteManager {
     public static boolean isMuted(String player){
         if (player == null) return false;
         else {
-            Double mute = config.getDouble("mute.".concat(player).concat(".time"), 0);
+            Double mute = config.getDouble("mute.".concat(player.toLowerCase()).concat(".time"), 0);
             
             if (mute == -1){
                 return true;
@@ -82,13 +83,13 @@ public class MuteManager {
     public static Long getTime(String player){       
         if (player == null) return new Long(0);
         else {
-            Double mute = config.getDouble("mute.".concat(player).concat(".time"), 0);
+            Double mute = config.getDouble("mute.".concat(player.toLowerCase()).concat(".time"), 0);
             if (mute == -1) {
                 return new Long(-1);
             }
             mute *= 1000;
             Long start;
-            start = (Long) config.get("mute.".concat(player).concat(".start"));
+            start = (Long) config.get("mute.".concat(player.toLowerCase()).concat(".start"));
             
             if (start == null) {
                 return new Long(-1);
@@ -99,8 +100,8 @@ public class MuteManager {
         }
     }
     public static void systemMute(String muted, Long time) {
-        config.set("mute.".concat(muted).concat(".time"), time);
-        config.set("mute.".concat(muted).concat(".start"), System.currentTimeMillis());
+        config.set("mute.".concat(muted.toLowerCase()).concat(".time"), time);
+        config.set("mute.".concat(muted.toLowerCase()).concat(".start"), System.currentTimeMillis());
         try {
             config.save(configFile);
         } catch (IOException e) {
@@ -126,8 +127,8 @@ public class MuteManager {
             }
         }
         if (!isMuted(muted)) {
-            config.set("mute.".concat(muted).concat(".time"), time);
-            config.set("mute.".concat(muted).concat(".start"), System.currentTimeMillis());
+            config.set("mute.".concat(muted.toLowerCase()).concat(".time"), time);
+            config.set("mute.".concat(muted.toLowerCase()).concat(".start"), System.currentTimeMillis());
             try {
                 config.save(configFile);
             } catch (IOException e) {
@@ -161,7 +162,7 @@ public class MuteManager {
             String group = MuteMan.config.getString("set-group", "");
             Access.removeGroup(muted, group);
         }
-        config.set("mute.".concat(muted), null);
+        config.set("mute.".concat(muted.toLowerCase()), null);
         try {
             config.save(configFile);
         } catch (IOException e) {

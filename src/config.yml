@@ -1,5 +1,6 @@
 # damage player, who is muted and continue write
-damage: 0
+damage: 1
+debug: false
 notify:
     # enable notify to muted player
     enabled: true
@@ -12,3 +13,6 @@ add-permissions:
 set-group:
 # totally disable commands for muted user. Not recommended, of course
 disable-commands: false
+
+rep_patt:
+    - ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß¸àáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ¸~АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯЁабвгдежзийклмнопрстуфхцчшщъыьэюяё

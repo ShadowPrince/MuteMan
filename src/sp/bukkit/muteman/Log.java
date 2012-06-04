@@ -13,10 +13,16 @@ import java.util.logging.Logger;
 public class Log{
    private static Logger log = Logger.getLogger("minecraft");
    private static String prefix = "[MuteMan] ";
+   private static boolean DEBUG = true;
+
    public static void info(String str){
        log.info(prefix.concat(str));
    }
    public static void warning(String str){
        log.warning(prefix.concat(str));
+   }
+   public static void debug(String str) {
+       if (MuteMan.config.getBoolean("debug"))
+        log.info(prefix.concat(str));
    }
 }
